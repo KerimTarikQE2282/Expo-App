@@ -1,14 +1,29 @@
-import { Image, StyleSheet, Platform, View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { Link } from 'expo-router'
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+const Index = () => {
   return (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' , backgroundColor:"white"}}>
-    <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Auora Home Screen from kerim</Text>
-  </View>
-  );
+    <View style={styles.container}>
+      <Text className=' font-pblack text-3xl'  >Auora </Text>
+      <Link href="/Home" style={styles.profile}> Home page</Link>
+    </View>
+  )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontWeight:"bold"
+  },
+  text: {
+    fontSize: 24,
+  },
+  profile:{
+    color:"blue"
+  }
+})
+
+export default Index
