@@ -7,9 +7,8 @@ import CustomButton from '@/Components/CustomButton'
 import { Link } from 'expo-router'
 
 
-const SignUp = () => {
+const SignIn = () => {
   const [form,setForm]=React.useState({
-    UserName:'',
     Email:'',
     Password:''
   })
@@ -27,7 +26,7 @@ const SignUp = () => {
     resizeMode='contain'
     className='w-[115px] h-[35px]'
     />
-    <Text className='text-2xl text-white font-semibold mt-10 font-psemibold '>Sign up to Auora</Text>
+    <Text className='text-2xl text-white font-semibold mt-10 font-psemibold '>Sign In to Auora</Text>
 
     <FormField
     title='Email'
@@ -37,13 +36,7 @@ const SignUp = () => {
     keyBoardType='email-address'
     placeholder='enter your Email'
     />
-     <FormField
-    title='Username'
-    value={form.Email}
-    onChange={(e:string) => setForm({...form,Email:e})}
-    otherStyles="mt-7"
-    placeholder='enter your Username'
-    />
+  
        <FormField
     title='Password'
     value={form.Password}
@@ -60,10 +53,9 @@ const SignUp = () => {
     />
     <View className='justify-center items-center p-5 flex-row gap-2'>
       <Text className='mt-[10vh] text-lg text-gray-100 ml-[5vw]'>
-        Already have an Account?
-      </Text>
-<Link href="./SignIn" className='text-lg font-psemibold text-secondary-100 mt-[10vh]'  >
-Sign In
+Dont have an account?      </Text>
+<Link href="./SignUp" className='text-lg font-psemibold text-secondary-100 mt-[10vh]'  >
+Sign Up
 </Link>
     </View>
       </View>
@@ -72,4 +64,4 @@ Sign In
   )
 }
 
-export default SignUp
+export default SignIn
