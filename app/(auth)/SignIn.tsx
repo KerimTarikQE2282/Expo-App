@@ -47,7 +47,7 @@ const SignIn = () => {
 
     
     />
-    <CustomButton color='secondary-200' title='Sign Up' handlepress={handleSubmit} 
+    <CustomButton color='secondary-200' title='Sign In' handlepress={handleSubmit} 
     containedStyles='relative top-[7vh] w-[80vw]'
     isLoading={isLoading}
     />
