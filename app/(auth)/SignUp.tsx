@@ -21,9 +21,9 @@ const SignUp = () => {
     setIsLoading(true)
       try {
         console.log(form)
-        const result=await createUser(form.email,form.UserName,form.Password )
+         const result=await createUser(form.email,form.UserName,form.Password )
             //set result to global State
-            router.replace('./home')
+            router.replace('../(tabs)/Home')
       } catch (error:any) {
         Alert.alert("Error",error.message)
       }
