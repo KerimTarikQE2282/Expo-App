@@ -16,20 +16,22 @@ const SignIn = () => {
   const [isLoading,setIsLoading]=React.useState(false)
   const handleSubmit=async () => {
     
-    try {
-      if(!form.Email|| !form.Password ){
-        Alert.alert("Error","please provide both email and password")
-      }
-      const user=await signIn(form.Email,form.Password)
-      if(!user){
-        Alert.alert("please provide valid values")
-      }
-      router.replace('../(tabs)/Home')
-    } catch (error:any) {
+    // try {
+    //   if(!form.Email|| !form.Password ){
+    //     Alert.alert("Error","please provide both email and password")
+    //   }
+    //   const user=await signIn(form.Email,form.Password)
+    //   if(!user){
+    //     Alert.alert("please provide valid values")
+    //   }
+    //   router.replace('../(tabs)/Home')
+    // } catch (error:any) {
       
-      Alert.alert("Error",error.message)
+    //   Alert.alert("Error",error.message)
 
-    }
+    // }
+           router.replace('../(tabs)/Home')
+
   }
 
 
