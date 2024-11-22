@@ -14,7 +14,7 @@ interface propsStyle {
 export default function CustomButton({title,handlepress,containedStyles,testStyles,isLoading,color}:propsStyle) {
   return (
     <TouchableOpacity 
-    className={`bg-secondary-200 rounded-xl p-4 py-5 relative   ml-10 ${containedStyles} ${isLoading ? 'opacity-50' : ''}`}
+    className={`bg-secondary-200 rounded-xl p-4 py-5 relative    ${containedStyles} ${isLoading ? 'opacity-50' : ''}`}
     // bottom-[20vh]
     onPress={handlepress}
     activeOpacity={0.7}

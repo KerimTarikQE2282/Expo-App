@@ -66,7 +66,7 @@ const SignIn = () => {
     
     />
     <CustomButton color='secondary-200' title='Sign In' handlepress={handleSubmit} 
-    containedStyles='relative top-[7vh] w-[80vw]'
+    containedStyles='relative top-[7vh] w-[80vw] ml-[5vw]'
     isLoading={isLoading}
     />
     <View className='justify-center items-center p-5 flex-row gap-2'>

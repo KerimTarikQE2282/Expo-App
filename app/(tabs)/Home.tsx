@@ -6,14 +6,16 @@ import SearchInput from '../../Components/SearchInputs';
 import Trending from '@/Components/Trending';
 import EmptyState from '@/Components/EmptyState';
 import { isLoading } from 'expo-font';
-import { getAllPosts } from '@/lib/appwrite';
+import { getAllPosts, getLatestPosts } from '@/lib/appwrite';
 import useAppWrite from '../../lib/useAppWrite'
 import VideoCard from '../../Components/VideoCard'
 const Home = () => {
+  
   const [refresh, setRefresh] = useState(false)
   const {data:posts,loading,refetch}:any=useAppWrite(getAllPosts());
+  const {posts:Latestdata,}:any=useAppWrite(getLatestPosts());
 
-  
+
 
 
   const onrefresh=async ()=>{
@@ -47,7 +49,9 @@ const Home = () => {
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-gray-100 text-lg font-pregular mb-3">Latest Videos</Text>
             </View>
+            <View className='mb-[12vh]'>
             <Trending posts={posts} />
+            </View>
           </View>
         )}
         ListEmptyComponent={() => (

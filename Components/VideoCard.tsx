@@ -21,7 +21,6 @@ interface videoCardProps {
 
 
 const VideoCard:React.FC<videoCardProps> = ({video}) => {
-console.log("🚀 ==> file: VideoCard.tsx:23 ==> video:", video);
 const [play,setPlay]=React.useState(false);
 
 

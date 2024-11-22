@@ -43,7 +43,7 @@ const Index = () => {
           title="Get Started with email"
           handlepress={() => router.push('/(auth)/SignIn')}
           color='secondary-200 '
-          containedStyles='w-[80vw]'
+          containedStyles='w-[80vw]  ml-[7vw] bottom-[20vh]'
          
           
           
