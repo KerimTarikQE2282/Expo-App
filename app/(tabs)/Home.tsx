@@ -41,15 +41,15 @@ const Home = () => {
             <View className="mt-1.5">
               <Image
                 source={images.logoSmall}
-                className="w-9 h-10"
+                className="w-9 h-10 mb-5"
                 resizeMode="contain"
               />
             </View>
             <SearchInput />
             <View className="w-full flex-1 pt-5 pb-8">
-              <Text className="text-gray-100 text-lg font-pregular mb-3">Latest Videos</Text>
+              <Text className="text-gray-100 text-lg font-pregular mb-1">Latest Videos</Text>
             </View>
-            <View className='mb-[12vh]'>
+            <View className='mb-[4vh]'>
             <Trending posts={posts} />
             </View>
           </View>

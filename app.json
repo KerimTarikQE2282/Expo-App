@@ -2,6 +2,7 @@
   "expo": {
     "name": "Auora",
     "slug": "Auora",
+    "permissions": ["INTERNET"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

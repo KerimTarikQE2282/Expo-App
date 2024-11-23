@@ -1,8 +1,9 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { icons } from '@/constants'
+import {Video,ResizeMode} from 'expo-av'
 
-interface Video{
+interface VideoProp{
   title:string,
   thumbnail:string,
   video:string
@@ -15,7 +16,7 @@ interface Video{
 
 
 interface videoCardProps {
-    video:Video,
+    video:VideoProp,
     
 }
 
@@ -25,7 +26,7 @@ const [play,setPlay]=React.useState(false);
 
 
   return (
-    <View className='flex-col items-center px-4 relative bottom-20'>
+    <View className='flex-col items-center px-4 relative bottom-20 mt-10'>
       <View className='flex-row gap-3 items-start '>
         <View className='justify-center item-center flex-row flex-1 '>
           <View className='w-[46px] h-[46px] rounded-lg border border-secondary justify-center items-center p-0.5'>
@@ -52,7 +53,23 @@ const [play,setPlay]=React.useState(false);
         </View>
       </View>
       {
-        play?<Text>Playing</Text>: 
+        play?(
+          <Video
+       
+          source={{ uri: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4' }}
+          useNativeControls
+          //fix the sources once ive upladed data 
+            style={{ width: 400, height: 230, backgroundColor: 'black', borderRadius: 20 ,marginTop:15}}
+             shouldPlay={true}
+           onError={(error) => console.log('Video Error:', error)}
+           resizeMode={ResizeMode.CONTAIN}
+           onPlaybackStatusUpdate={(status:any)=>{
+             if(status.didJustFinish){
+               setPlay(false)
+             }
+           }}
+         />
+        ): 
         <TouchableOpacity
         className='w-full h-60 rounded-xl mt-3 relative justify-center items-center'
         activeOpacity={0.7}
