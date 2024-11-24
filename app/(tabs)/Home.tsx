@@ -9,12 +9,13 @@ import { isLoading } from 'expo-font';
 import { getAllPosts, getLatestPosts } from '@/lib/appwrite';
 import useAppWrite from '../../lib/useAppWrite'
 import VideoCard from '../../Components/VideoCard'
+import GlobalProvider, { useGlobalContext } from '@/context/globalprovider';
 const Home = () => {
   
   const [refresh, setRefresh] = useState(false)
   const {data:posts,loading,refetch}:any=useAppWrite(getAllPosts());
   const {posts:Latestdata,}:any=useAppWrite(getLatestPosts());
-
+  const {user}=useGlobalContext()
 
 
 
@@ -36,7 +37,7 @@ const Home = () => {
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between items-start flex-col mb-6">
               <Text className="font-pmedium text-sm text-gray-100">Welcome Back</Text>
-              <Text className="text-2xl font-psemibold text-white">JSMAstery</Text>
+              <Text className="text-2xl font-psemibold text-white">{user?.UserName}</Text>
             </View>
             <View className="mt-1.5">
               <Image

@@ -5,7 +5,8 @@ import images from '../../constants/images'
 import FormField from '../../Components/FormField'
 import CustomButton from '@/Components/CustomButton'
 import { Link, router } from 'expo-router'
-import {createUser} from '../../lib/appwrite'
+import {createUser, getCurrentUser} from '../../lib/appwrite'
+import { useGlobalContext } from '@/context/globalprovider'
 
 const SignUp = () => {
   const [form,setForm]=React.useState({
@@ -14,6 +15,7 @@ const SignUp = () => {
     Password:''
   })
   const [isLoading,setIsLoading]=React.useState(false)
+  const {setUser,setIsLoggedIn}=useGlobalContext()
   const handleSubmit=async () => {
     if(!form.UserName || !form.email || !form.Password ){
     Alert.alert("Error",'please fill in all the fields')
@@ -22,6 +24,8 @@ const SignUp = () => {
       try {
         console.log(form)
          const result=await createUser(form.email,form.UserName,form.Password )
+         setUser(result)
+         setIsLoggedIn(true)
             //set result to global State
             router.replace('../(tabs)/Home')
       } catch (error:any) {

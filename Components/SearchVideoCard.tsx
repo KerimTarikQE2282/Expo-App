@@ -26,7 +26,7 @@ const [play,setPlay]=React.useState(false);
 
 
   return (
-    <View className='flex-col items-center px-4 relative bottom-20 mt-10'>
+    <View className='flex-col items-center px-4 relative  mt-10'>
       <View className='flex-row gap-3 items-start '>
         <View className='justify-center item-center flex-row flex-1 '>
           <View className='w-[46px] h-[46px] rounded-lg border border-secondary justify-center items-center p-0.5'>
@@ -43,7 +43,7 @@ const [play,setPlay]=React.useState(false);
                   </Text>
                   <Text className='text-xs text-gray-100 font-pregular' numberOfLines={1}>{video?.creator?.UserName}</Text>
                   </View> 
-        </View>
+        </View>\
         <View className='pt-2'>
           <Image
             source={icons.menu}

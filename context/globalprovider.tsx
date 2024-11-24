@@ -11,7 +11,7 @@ export const useGlobalContext = () => useContext(GlobalContext);
 const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState<any>(null);
-    const [isLoading, setIsLoading] = useState(true); // Initialize isLoading with `true`
+    const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
         getCurrentUser()
@@ -20,6 +20,8 @@ const GlobalProvider = ({ children }: { children: React.ReactNode }) => {
                     console.log("logged in")
                     setIsLoggedIn(true);
                     setUser(res);
+                    console.log("🚀 ==> file: globalprovider.tsx:14 ==> GlobalProvider ==> user:", user);
+
                 } else {
                     setIsLoggedIn(false);
                     setUser(null);

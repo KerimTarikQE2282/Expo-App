@@ -5,6 +5,7 @@ import *  as Animatable from 'react-native-animatable'
 import { icons } from '@/constants'
 import {Video,ResizeMode} from 'expo-av'
 interface trendingProps{
+  $id:string
   title:string,
   thumbnail:string,
   video:string,
@@ -40,7 +41,6 @@ const zoomOut={
 }
 
 export const TrendingItem :React.FC<{posts:trendingProps,activeItem:trendingProps[]}>=({posts,activeItem}:any) => {
-  console.log("🚀 ==> file: Trending.tsx:37 ==> TrendingItem component==> posts:",activeItem.item?.$id,posts.$id);
   const [play,setPlay]=React.useState(false)
   return(
     <Animatable.View 
@@ -50,7 +50,7 @@ export const TrendingItem :React.FC<{posts:trendingProps,activeItem:trendingProp
     >
       {
         play?(
-<View className='w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg bg-black shadow-black/40'>
+          <View className='w-52 h-72 rounded-[35px] my-5 overflow-hidden shadow-lg bg-black shadow-black/40'>
           <Video
                  //fix the sources once ive upladed data 
 
@@ -69,6 +69,9 @@ export const TrendingItem :React.FC<{posts:trendingProps,activeItem:trendingProp
       </View>
           
         ):(
+
+
+        
           <TouchableOpacity className='relative justify-center items-center ' activeOpacity={0.7} onPress={()=>setPlay(!play)}>
             <ImageBackground
             source={{ uri: posts.thumbnail }}
@@ -91,7 +94,6 @@ const Trending :React.FC<{posts:trendingProps[]}> = ({posts}) => {
 
   const [activeItem,setActiveItem]=React.useState(posts[0])
   const ViewableItemsChange=({viewableItems}:any) => {
-    console.log("🚀 ==> file: Trending.tsx:82 ==> ViewableItemsChange ==> viewableItems:", viewableItems);
    
     if(viewableItems.length>0){
       setActiveItem(viewableItems[0])

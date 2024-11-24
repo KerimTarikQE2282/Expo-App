@@ -6,7 +6,6 @@ import CustomButton from '../Components/CustomButton'
 import { useGlobalContext } from '@/context/globalprovider'
 const Index = () => {
   const {isLoading,isLoggedIn} =useGlobalContext()
-  console.log("🚀 ==> file: index.tsx:9 ==> Index ==> isLoading,isLoggedin:", isLoading,isLoggedIn);
   
     if(!isLoading && isLoggedIn){
       router.replace('/(tabs)/Home')

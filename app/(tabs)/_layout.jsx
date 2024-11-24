@@ -7,7 +7,6 @@ import { useGlobalContext } from '@/context/globalprovider';
 
 const TabIcon = ({ icon, color, name, focused }) => {
   const {isLoading,isLoggedIn} =useGlobalContext()
-  console.log("🚀 ==> file: _layout.jsx:10 ==> TabIcon ==> isLoading,isLoggedIn:", isLoading,isLoggedIn);
 
   return (
     <>
