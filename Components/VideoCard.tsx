@@ -2,7 +2,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { icons } from '@/constants'
 import {Video,ResizeMode} from 'expo-av'
-
+import { Heart } from 'lucide-react-native';
+import { useGlobalContext } from '@/context/globalprovider';
+import {LikeVideos} from '@/lib/appwrite'
 interface VideoProp{
   title:string,
   thumbnail:string,
@@ -22,8 +24,16 @@ interface videoCardProps {
 
 
 const VideoCard:React.FC<videoCardProps> = ({video}) => {
-const [play,setPlay]=React.useState(false);
+  const [play,setPlay]=React.useState(false);
+  const [liked,setLiked]=React.useState(false)
+  const {user}=useGlobalContext()
+  console.log("🚀 ==> file: VideoCard.tsx:29 ==> user:", user);
 
+  const changeLiked=()=>{
+    setLiked(!liked);
+    LikeVideos(user?.$id,video?.$id)
+  }
+  
 
   return (
     <View className='flex-col items-center px-4 relative bottom-20 mt-10'>
@@ -45,18 +55,19 @@ const [play,setPlay]=React.useState(false);
                   </View> 
         </View>
         <View className='pt-2'>
-          <Image
-            source={icons.menu}
-            className='w-5 h-5 '
-            resizeMode='contain'
-            />
+          {
+            liked ?
+            (<TouchableOpacity onPress={()=>changeLiked()} className='w-10 h-10'><Heart fill="red" strokeWidth={0} strokeOpacity={0}/></TouchableOpacity>) :
+           ( <TouchableOpacity onPress={()=>changeLiked()} className='w-10 h-10'><Heart fill='#161622' strokeWidth={1}/></TouchableOpacity>)
+          }
+        
         </View>
       </View>
       {
         play?(
           <Video
        
-          source={{ uri: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4' }}
+          source={{ uri: video?.video  }}
           useNativeControls
           //fix the sources once ive upladed data 
             style={{ width: 400, height: 230, backgroundColor: 'black', borderRadius: 20 ,marginTop:15}}

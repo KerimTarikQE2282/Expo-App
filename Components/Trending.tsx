@@ -54,7 +54,7 @@ export const TrendingItem :React.FC<{posts:trendingProps,activeItem:trendingProp
           <Video
                  //fix the sources once ive upladed data 
 
-       source={{ uri: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4' }}
+       source={{ uri: posts?.video }}
        useNativeControls
          style={{ width: 300, height: 400, backgroundColor: 'black', borderRadius: 20,position:'relative',bottom:70  }}
           shouldPlay={true}

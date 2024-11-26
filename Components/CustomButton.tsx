@@ -7,7 +7,7 @@ interface propsStyle {
   containedStyles?:string,
   testStyles?:string,
   isLoading?:boolean
-  color:string
+  color?:string
 }
 
 
